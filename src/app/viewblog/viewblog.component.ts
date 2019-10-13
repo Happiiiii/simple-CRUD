@@ -31,4 +31,19 @@ details;
     });
   }
 
+  deleteData(id) {
+    let result = confirm('permanantly delete..!')
+    if( result = true){
+    this.http
+    .delete(`http://5d47b117992ea9001444c9af.mockapi.io/forms/${id}`)
+    .toPromise()
+    .then((response) => {
+      this.details = response;
+      this.loadData();
+    }, (error) => {
+      console.log(error);
+    });
+    }
+  }
+
 }
